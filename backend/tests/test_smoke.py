@@ -4,4 +4,4 @@
 def test_app_package_imports():
     import app
 
-    assert app.__doc__ is None
+    assert app.__doc__ is not None
