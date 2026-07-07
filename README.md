@@ -1,6 +1,9 @@
 team-05-cluster                                          
  Uruioc Vasile-Stefan                                             
  Chitic-Pelin Ioan-Alexandru
+
+![Build Status](https://github.com/issa-summer-practice-2026/team-05-cluster/actions/workflows/ci.yml/badge.svg)
+ 
 # instrument-cluster
 
 A digital automotive **instrument cluster** — the starter app for the ISSA
