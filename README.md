@@ -1,4 +1,4 @@
-Uruioc Vasile-Stefan / Chitic-Pelin Ioan-Alexandru
+Team-05-cluster Uruioc Vasile-Stefan / Chitic-Pelin Ioan-Alexandru
 # instrument-cluster
 
 A digital automotive **instrument cluster** — the starter app for the ISSA
