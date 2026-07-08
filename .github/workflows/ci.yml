@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=app --cov-report=xml
+          pytest --cov=app --cov-report=xml --cov-fail-under=80
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
@@ -82,3 +82,13 @@ jobs:
 
       - name: Build
         run: npm run build
+
+    pr-title:
+    name: PR title lint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Check PR title follows Conventional Commits
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
