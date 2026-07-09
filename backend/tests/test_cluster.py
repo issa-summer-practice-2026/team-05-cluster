@@ -1,11 +1,10 @@
-"""Unit tests for the pure cluster logic (`app.cluster`)."""
-
 import pytest
 
 from app.cluster import (
     LOW_FUEL_PCT,
     OVERHEAT_TEMP_C,
     REDLINE_RPM,
+    SHIFT_LIGHT_RPM,
     SPEED_MAX_KMH,
     TELLTALE_KEYS,
     RawInput,
@@ -85,6 +84,12 @@ class TestTelltales:
 
     def test_overheat_below_threshold(self):
         assert compute_telltales(RawInput(coolant_temp_c=OVERHEAT_TEMP_C - 1))["coolant"] is False
+
+    def test_shift_light_at_threshold(self):
+        assert compute_telltales(RawInput(rpm=SHIFT_LIGHT_RPM))["shift_light"] is True
+
+    def test_shift_light_below_threshold(self):
+        assert compute_telltales(RawInput(rpm=SHIFT_LIGHT_RPM - 1))["shift_light"] is False
 
     def test_hazard_forces_both_indicators(self):
         t = compute_telltales(RawInput(hazard=True))
